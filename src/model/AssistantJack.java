@@ -31,9 +31,8 @@ public class AssistantJack {
      * answer set 2, or random). Depending on assistant, a different correct
      * Theory object is created.
      *
-     * @param answerSet
-     *            1 is a fixed answer of 1,1,1 and 2 is a fixed answer of 6,10,6
-     *            any other integer will be randomly assigned
+     * @param answerSet 1 is a fixed answer of 1,1,1 and 2 is a fixed answer of 6,10,6
+     *                  any other integer will be randomly assigned
      */
     public AssistantJack(int answerSet) {
         this();
@@ -54,8 +53,7 @@ public class AssistantJack {
     /**
      * Creates an assistant Jack with a theory that was passed in.
      *
-     * @param theory
-     *            deep copied object stored as correct theory
+     * @param theory deep copied object stored as correct theory
      */
     public AssistantJack(Theory theory) {
         this();
@@ -67,16 +65,13 @@ public class AssistantJack {
      * number that needs to be interpreted (see return). Also keeps track of
      * times asked by incrementing every time this method is called
      *
-     * @param weapon
-     *            the weapon used 1 - 6
-     * @param location
-     *            the location where it was done 1 - 10
-     * @param person
-     *            the person who did it 1 - 6
+     * @param weapon   the weapon used 1 - 6
+     * @param location the location where it was done 1 - 10
+     * @param person   the person who did it 1 - 6
      * @return 0 if all three are correct, 1 if the weapon is incorrect, 2 if
-     *         the location is incorrect and 3 if the person is incorrect. If
-     *         multiple are incorrect it will randomly select one of the
-     *         incorrect parts and return that.
+     * the location is incorrect and 3 if the person is incorrect. If
+     * multiple are incorrect it will randomly select one of the
+     * incorrect parts and return that.
      */
     public int checkAnswer(int weapon, int location, int person) {
         ArrayList<Integer> wrongItems = new ArrayList<Integer>();
@@ -99,12 +94,16 @@ public class AssistantJack {
         // return based on incorrect items, if any, in array list
         if (wrongItems.size() == 0) {
             return 0;
-        } else if (wrongItems.size() == 1) {
+        } else if (wrongItems.size() >= 1) {
+//            Tells me exactly which guess is incorrect, in order, which is checked and changed individually in RandomClue.java
             return wrongItems.get(0);
         } else {
-            Random random = new Random();
-            int randomSelected = random.nextInt(wrongItems.size());
-            return wrongItems.get(randomSelected);
+//            I want it to return the size of the wrong items, to make sure I'm narrowing them down in RandomClue.java
+//            Random random = new Random();
+//            int randomSelected = random.nextInt(wrongItems.size());
+//            return wrongItems.get(randomSelected);
+//            return wrongItems.size();
+            return 0;
         }
     }
 

@@ -1,0 +1,9 @@
+With my code, I always get a solution in less than or equal to 20 guesses. Although I guess it on the first try for
+answer set #1, since my code checks the first combination first. And for answer set #2, I always get the correct combination
+in 20 guesses, since my code starts at the first combination and reaches that answer set within 20 guesses exactly. For
+the final answer set #3, its random but always below 20.
+
+The good part about this strategy is that its quick and efficient, only moving on to the next piece of the combination
+when the last one is correct. However, it requires Assistant Jack to tell you exactly which piece of the combination is
+wrong. I realize now that this feels a little like cheating but there isnt a more efficient way without changing Assistant
+Jack a little.

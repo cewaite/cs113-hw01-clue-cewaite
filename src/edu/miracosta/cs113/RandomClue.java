@@ -56,6 +56,11 @@ public class RandomClue {
         Scanner keyboard = new Scanner(System.in);
         Random random = new Random();
 
+//      Generate Initial guesses
+        weapon = 1;
+        location = 1;
+        murder = 1;
+
         // INPUT
         System.out.print("Which theory would like you like to test? (1, 2, 3[random]): ");
         answerSet = keyboard.nextInt();
@@ -64,12 +69,26 @@ public class RandomClue {
         // PROCESSING
         jack = new AssistantJack(answerSet);
 
-        do {
-            weapon = random.nextInt(6) + 1;
-            location = random.nextInt(10) + 1;
-            murder = random.nextInt(6) + 1;
+//        Check First set of guesses
+        solution = jack.checkAnswer(weapon, location, murder);
+
+
+//        Check correctness of each aspect before continuing on
+
+        while (solution == 1) {
+            weapon++;
             solution = jack.checkAnswer(weapon, location, murder);
-        } while (solution != 0);
+        }
+
+        while (solution == 2) {
+            location++;
+            solution = jack.checkAnswer(weapon, location, murder);
+        }
+
+        while (solution == 3) {
+            murder++;
+            solution = jack.checkAnswer(weapon, location, murder);
+        }
 
         answer = new Theory(weapon, location, murder);
 
