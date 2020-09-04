@@ -91,21 +91,18 @@ public class AssistantJack {
             wrongItems.add(3);
         }
 
-        // return based on incorrect items, if any, in array list
         if (wrongItems.size() == 0) {
             return 0;
-        } else if (wrongItems.size() >= 1) {
-//            Tells me exactly which guess is incorrect, in order, which is checked and changed individually in RandomClue.java
+        } else if (wrongItems.size() == 1) {
             return wrongItems.get(0);
         } else {
-//            I want it to return the size of the wrong items, to make sure I'm narrowing them down in RandomClue.java
-//            Random random = new Random();
-//            int randomSelected = random.nextInt(wrongItems.size());
-//            return wrongItems.get(randomSelected);
-//            return wrongItems.size();
-            return 0;
+            Random random = new Random();
+            int randomSelected = random.nextInt(wrongItems.size());
+            return wrongItems.get(randomSelected);
         }
     }
+
+
 
     /**
      * Pass through (convenient) method that converts the theory to numbers and

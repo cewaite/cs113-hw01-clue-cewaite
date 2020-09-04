@@ -4,6 +4,7 @@ in 20 guesses, since my code starts at the first combination and reaches that an
 the final answer set #3, its random but always below 20.
 
 The good part about this strategy is that its quick and efficient, only moving on to the next piece of the combination
-when the last one is correct. However, it requires Assistant Jack to tell you exactly which piece of the combination is
-wrong. I realize now that this feels a little like cheating but there isnt a more efficient way without changing Assistant
-Jack a little.
+when the last one is correct. My first method actually required a change to Assistant Jack, however, I reformated it so
+Assistant Jack stays the same, giving you a random number that corresponds to the wrong piece of the solution. My code
+will edit that wrong piece until its correct, then move on to the next piece thats incorrect and repeat the process until
+its solved

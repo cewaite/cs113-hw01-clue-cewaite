@@ -75,20 +75,20 @@ public class RandomClue {
 
 //        Check correctness of each aspect before continuing on
 
-        while (solution == 1) {
-            weapon++;
-            solution = jack.checkAnswer(weapon, location, murder);
+        while (solution != 0) {
+
+            if (solution == 1) {
+                weapon++;
+                solution = jack.checkAnswer(weapon, location, murder);
+            } else if (solution == 2) {
+                location++;
+                solution = jack.checkAnswer(weapon, location, murder);
+            } else if (solution == 3) {
+                murder++;
+                solution = jack.checkAnswer(weapon, location, murder);
+            }
         }
 
-        while (solution == 2) {
-            location++;
-            solution = jack.checkAnswer(weapon, location, murder);
-        }
-
-        while (solution == 3) {
-            murder++;
-            solution = jack.checkAnswer(weapon, location, murder);
-        }
 
         answer = new Theory(weapon, location, murder);
 
